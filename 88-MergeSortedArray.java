@@ -15,8 +15,8 @@ class Solution {
             x_pointer -= 1;           
         }    
             
-        // * nums1 has a smaller length m (such as m = 0).
-        // * All elements in nums1 are smaller than those in nums2.
+        // nums1 has a smaller length m (such as m = 0).
+        // All elements in nums1 are smaller than those in nums2.
         while (n_pointer >= 0) {
             nums1[x_pointer] = nums2[n_pointer];
             n_pointer -= 1;
@@ -27,7 +27,7 @@ class Solution {
 }
 
 
-//      m.    
+//      m    
 //   [1,2,3,4,5,6]
 //        x
 // n
