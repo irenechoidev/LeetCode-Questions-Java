@@ -1,7 +1,7 @@
 class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {
 
-        if (root == null) return root;
+        if (root == null) return null;
             // key를 찾자. 
             // 1. key가 root.val 보다 크면 오른쪽에서,     
         else if (root.val > key) root.left = deleteNode(root.left, key);
