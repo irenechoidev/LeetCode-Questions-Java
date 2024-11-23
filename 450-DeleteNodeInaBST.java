@@ -10,7 +10,7 @@ class Solution {
         else if (root.val < key) root.right = deleteNode(root.right, key);
         
             // 3. root.val == key 인 경우
-        else {
+        else if (root.val == key) {
         
                 // 찾은 root가 left, right 모두 이 없으면 그냥 지우면 되고
             if (root.left == null && root.right == null ) return null;
