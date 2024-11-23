@@ -14,26 +14,28 @@ class Solution {
         
                 // 찾은 root가 left, right 모두 이 없으면 그냥 지우면 되고
             if (root.left == null && root.right == null ) return null;
-
                 // left 만 있으면 
-            if (root.left != null && root.right == null) return root.left;
+            else if (root.left != null && root.right == null) return root.left;
                 // right 만 있으면
-            if (root.left == null && root.right != null) return root.right;
-
+            else if (root.left == null && root.right != null) return root.right;
                 // 그 root 가 left, right, 둘 다 있으면 
-                // The maximum node from the left subtree (predecessor).
-                //   -> [5,2,6,null,4,null,7]
+            else if(root.left != null && root.right != null) {
+
+               
+                    // The maximum node from the left subtree (predecessor).
+                    //   -> [5,2,6,null,4,null,7]
             
-                // TreeNode maxOnLeft = findMaxNode(root.left);
-                // root.val = maxOnLeft.val;
-                // root.left = deleteNode(root.left, root.val);
+                        // TreeNode maxOnLeft = findMaxNode(root.left);
+                        // root.val = maxOnLeft.val;
+                        // root.left = deleteNode(root.left, root.val);
 
                 // Or the minimum node from the right subtree (successor).
                 //   -> [5,4,6,2,null,null,7]
             
-            TreeNode minOnRight = findMinNode(root.right);
-            root.val = minOnRight.val;
-            root.right = deleteNode(root.right, root.val);
+                TreeNode minOnRight = findMinNode(root.right);
+                root.val = minOnRight.val;
+                root.right = deleteNode(root.right, root.val);
+            }
             
         }
         return root;
