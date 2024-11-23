@@ -2,8 +2,10 @@ public class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         for (int[] prerequisite : prerequisites) {
-            map.putIfAbsent(prerequisite[0], new ArrayList<>());
-            map.get(prerequisite[0]).add(prerequisite[1]);
+            int course = prerequisite[0];
+            int requiredCourse = prerequisite[1];
+            map.putIfAbsent(course, new ArrayList<>());
+            map.get(course).add(requiredCourse);
         }
 
         Map<Integer, Integer> visited = new HashMap<>();
