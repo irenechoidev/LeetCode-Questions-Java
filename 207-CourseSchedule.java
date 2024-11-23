@@ -24,6 +24,14 @@ public class Solution {
         visited.put(node, 1);
 
         List<Integer> adjacents = map.getOrDefault(node, new ArrayList<>());
+              // map.get(node): This would return null if the course (node) has no    
+              // prerequisites. 
+
+             // map.getOrDefault(node, new ArrayList<>()): This returns an empty list (new 
+             // ArrayList<>()) if the course (node) is not present in the map. This way, 
+             // when you iterate over adjacents, there are no issues because it’s safely 
+             // handled as an empty list.
+        
         for (int adj : adjacents) {
             if (!dfs(map, visited, adj))
                 return false;
