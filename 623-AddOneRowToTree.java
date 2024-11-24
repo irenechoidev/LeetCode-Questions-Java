@@ -5,7 +5,10 @@ class Solution {
             // new TreeNode 를 만든다
             TreeNode newRoot = new TreeNode(val);
 
-            // 꼭 newRoot.left에 넣어야 함(not newRoot.right)
+            // 꼭 newRoot.left에 넣어야 함(not newRoot.right) - according to the question description:
+            // If depth == 1 that means there is no depth depth - 1 at all, 
+            // then create a tree node with value val as the new root of the whole original tree, 
+            // and the original tree is the new root's left subtree.
             newRoot.left = root;
 
             return newRoot;
