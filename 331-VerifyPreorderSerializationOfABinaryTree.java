@@ -4,18 +4,18 @@ class Solution {
 
     public boolean isValidSerialization(String preorder) {
         // process 'String preorder' to 'String[] nodes' for making Tree and
-        // process 'nodes' to 'String preorderWithoutCommas' for comparison
+        // process 'nodes' to 'String originalPreorder' for comparison
         String[] nodes = preorder.split(",");
-        String preorderWithoutCommas = String.join("", nodes);
+        String originalPreorder = String.join("", nodes);
 
         // make Tree from the 'String[] nodes' incrementing index of nodes
         TreeNode root = constructTree(nodes);
 
         // make String from the Tree iterating preorderDFS
         StringBuilder sb = new StringBuilder();
-        String preorderString = preorderDFS(root, sb);
+        preorderDFS(root, sb);
 
-        return preorderString.equals(preorderWithoutCommas);
+        return sb.toString().equals(originalPreorder);
 
     }
 
@@ -35,17 +35,15 @@ class Solution {
         return root;
     }
 
-    private String preorderDFS(TreeNode root, StringBuilder sb) {
+    private void preorderDFS(TreeNode root, StringBuilder sb) {
         if (root == null) {
             sb.append("#");
-            return sb.toString();
+            return;
         }
         sb.append(root.val);
 
         preorderDFS(root.left, sb);
         preorderDFS(root.right, sb);
-
-        return sb.toString();
     }
 
     class TreeNode {
