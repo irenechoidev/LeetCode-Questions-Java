@@ -9,7 +9,6 @@ public class Solution {
         }
 
         Map<Integer, Integer> visited = new HashMap<>();
-        boolean reuslt = true;
         for (int i = 0; i < numCourses; i++) {
             if (!dfs(map, visited, i))
                 return false;
