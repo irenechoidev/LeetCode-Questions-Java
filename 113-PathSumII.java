@@ -10,6 +10,8 @@ class Solution {
             return;
 
         temp.add(root.val);
+        // add the copy of the temp list(not temp itself) when adding it to result.
+        // targetSum = root.val(root 가 leaf 일떄 그 root.val(마지막 root))
         if (isLeaf(root) && root.val == targetSum) {
             result.add(new ArrayList<>(temp));
         }
