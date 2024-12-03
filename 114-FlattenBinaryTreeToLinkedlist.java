@@ -9,7 +9,7 @@ class Solution {
         while (!stack.isEmpty()) {
             TreeNode curr = stack.pop();
 
-            // Pushing Nodes onto the Stack
+            // Pushing Nodes onto the Stack (push right first to pop left first)
             if (curr.right != null)
                 stack.push(curr.right);
             if (curr.left != null)
