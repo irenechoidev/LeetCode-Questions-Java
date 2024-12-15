@@ -34,6 +34,10 @@ class Solution {
             
                 TreeNode minOnRight = findMinNode(root.right);
                 root.val = minOnRight.val;
+                // After replacing, deleteNode is recursively called to clean up the duplicate node.
+                // Even after replacing the value of the current node with the minimum node in the right subtree (in-order successor), 
+                //     the original minimum node remains in its original position. 
+                //     Therefore, we need to call deleteNode recursively to delete the original node from the right subtree.
                 root.right = deleteNode(root.right, root.val);
             }
             
