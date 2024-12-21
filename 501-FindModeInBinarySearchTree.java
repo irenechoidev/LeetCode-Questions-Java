@@ -5,7 +5,7 @@ class Solution {
     
     public int[] findMode(TreeNode root) {
        
-        preorderTraversalAndCount(root);
+        inorderTraversalAndCount(root);
 
         // if there is more than one maxCount int the map
         List<Integer> result = new ArrayList<>();
@@ -18,10 +18,12 @@ class Solution {
         return convertListToArr(result);
     }
 
-    private void preorderTraversalAndCount(TreeNode root) {
+    private void inorderTraversalAndCount(TreeNode root) {
         if (root == null)
             return;
-
+        
+        inorderTraversalAndCount(root.left);
+        
         // count the values of nodes
         int count = map.getOrDefault(root.val, 0) + 1;
         // and update maxCount
@@ -30,10 +32,8 @@ class Solution {
         }
 
         map.put(root.val, count);
-
-        // process
-        preorderTraversalAndCount(root.left);
-        preorderTraversalAndCount(root.right);
+        
+        inorderTraversalAndCount(root.right);
     }
 
     private int[] convertListToArr(List<Integer> list) {
