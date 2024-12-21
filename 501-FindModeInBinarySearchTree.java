@@ -11,7 +11,7 @@ class Solution {
         List<Integer> result = new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry: map.entrySet()) {     
             if (entry.getValue() == maxCount) {
-                result.add(getKey());
+                result.add(entry.getKey());
             }
         }
 
