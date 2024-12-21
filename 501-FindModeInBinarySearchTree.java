@@ -1,24 +1,24 @@
 class Solution {
 
     int maxCount = 0;
-
+    Map<Integer, Integer> map = new HashMap<>();
+    
     public int[] findMode(TreeNode root) {
-        Map<Integer, Integer> map = new HashMap<>();
-        dfs(root, map);
+       
+        preorderTraversalAndCount(root);
 
         // if there is more than one maxCount int the map
         List<Integer> result = new ArrayList<>();
-        List<Integer> nodes = new ArrayList<>(map.keySet());
-        for (int node : nodes) {
-            if (map.get(node) == maxCount) {
-                result.add(node);
+        for (Map.Entry<Integer, Integer> entry: map.entrySet()) {     
+            if (entry.getValue() == maxCount) {
+                result.add(getKey());
             }
         }
 
         return convertListToArr(result);
     }
 
-    private void dfs(TreeNode root, Map<Integer, Integer> map) {
+    private void preorderTraversalAndCount(TreeNode root) {
         if (root == null)
             return;
 
@@ -32,8 +32,8 @@ class Solution {
         map.put(root.val, count);
 
         // process
-        dfs(root.left, map);
-        dfs(root.right, map);
+        preorderTraversalAndCount(root.left);
+        preorderTraversalAndCount(root.right);
     }
 
     private int[] convertListToArr(List<Integer> list) {
