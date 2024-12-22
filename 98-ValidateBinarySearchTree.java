@@ -13,7 +13,7 @@ class Solution {
         if (minIsLesser
                 && maxIsGreater
                 && helper(root.left, min, root.val)
-                && helper(root.right, root.val, max) {
+                && helper(root.right, root.val, max)) {
             return true;
         }
 
