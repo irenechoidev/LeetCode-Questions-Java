@@ -11,7 +11,7 @@ class Solution {
             // If the count of a number num in the map is 0,
             // it means all instances of this number have already been used in previous
             // groups
-            if (map.getOrDefault(num, 0) == 0) {
+            if (map.get(num) == 0) {
                 continue;
             }
 
