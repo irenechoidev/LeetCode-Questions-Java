@@ -10,13 +10,9 @@ class Solution {
         boolean minIsLesser = min == null || (min != null && root.val > min);
         boolean maxIsGreater = max == null || (max != null && root.val < max);
 
-        if (minIsLesser
+        return minIsLesser
                 && maxIsGreater
                 && helper(root.left, min, root.val)
-                && helper(root.right, root.val, max)) {
-            return true;
-        }
-
-        return false;
+                && helper(root.right, root.val, max);
     }
 }
