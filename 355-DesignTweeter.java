@@ -30,6 +30,7 @@ class Twitter {
         PriorityQueue<Tweet> allTweets = new PriorityQueue<>(
                 (t1, t2) -> t2.timestamp - t1.timestamp);
 
+        // Add all tweets from the people I follow to the heap
         Set<Integer> myFollowingSet = getFollowingIds(userId);
         // Set to List
         List<Integer> myFollowing = new ArrayList<>(myFollowingSet);
@@ -43,6 +44,7 @@ class Twitter {
             }
         }
 
+        // Add all my tweets to the heap
         PriorityQueue<Tweet> myTweets = getTweets(userId);
         while (!myTweets.isEmpty()) {
             Tweet tweet = myTweets.poll();
@@ -50,14 +52,18 @@ class Twitter {
             allTweets.add(tweet);
         }
 
+        // Remove the top 10 tweets from the heap
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
+
+            // If statement is in case we have less than 10 tweets
             if (!allTweets.isEmpty()) {
                 Tweet tweet = allTweets.poll();
                 result.add(tweet.tweetId);
             }
         }
 
+        // Add every tweet back to the userTweets map
         for (Tweet tweet : toAddBack) {
             userTweets.get(tweet.userId).add(tweet);
         }
