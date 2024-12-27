@@ -1,15 +1,15 @@
 class Solution {
     public Node cloneGraph(Node node) {
+        // base case
+        if (node == null) return node;
+        
         Map<Node, Node> map = new HashMap<>();
-        Node clone = dfs(node, map);
-        return clone;
+        dfs(node, map);
+        
+        return map.get(node);
     }
 
     private Node dfs(Node node, Map<Node, Node> map) {
-
-        // base cases
-        if (node == null)
-            return node;
         if (map.containsKey(node))
             return map.get(node);
 
@@ -18,8 +18,9 @@ class Solution {
         map.put(node, clone);
 
         // clone neighbors of Node n to neighbors of Node clone
-        for (Node n : node.neighbors) {
-            clone.neighbors.add(dfs(n, map));
+        for (Node adj : node.neighbors) {
+            Node cloneAdj = dfs(adj, map);
+            clone.neighbors.add(cloneAdj);
         }
 
         return clone;
