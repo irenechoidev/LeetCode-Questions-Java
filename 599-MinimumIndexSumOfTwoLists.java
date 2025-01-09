@@ -12,7 +12,7 @@ class Solution {
                 int indexSum = map.get(list2[j]) + j;
 
                 if (indexSum < minSum) {
-                    list.clear();
+                    list = new ArrayList<>();
                     list.add(list2[j]);
                     minSum = indexSum;
                 } else if (minSum == indexSum) {
