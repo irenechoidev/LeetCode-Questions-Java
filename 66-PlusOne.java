@@ -14,6 +14,6 @@ public class Solution {
         result[0] = 1;
         return result;
     }
-}{
-
 }
+
+
