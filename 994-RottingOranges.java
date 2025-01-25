@@ -18,6 +18,8 @@ class Solution {
             }
         }
 
+        if (freshOrange == 0) return 0;
+
         int level = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
