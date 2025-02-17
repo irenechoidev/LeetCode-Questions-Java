@@ -21,7 +21,7 @@ class Solution {
                 }
             }
 
-            while ((end - start + 1) == p.length()) {
+            while ((end - start + 1) >= p.length()) {
                 if (count == 0)
                     result.add(start);
 
