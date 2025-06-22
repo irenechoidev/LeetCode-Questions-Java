@@ -27,6 +27,7 @@ class Solution {
                 sb.append(Character.toUpperCase(c));
             } else if (Character.isDigit(c)) {
                 sb.append(c);
+            }
         }
         return sb.toString();
     }
