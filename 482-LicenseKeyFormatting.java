@@ -23,9 +23,10 @@ class Solution {
     private String reFormatStr(String s) {
         StringBuilder sb = new StringBuilder();
         for (char c : s.toCharArray()) {
-            if (c != '-') {
+            if (Character.isLetter(c)) {
                 sb.append(Character.toUpperCase(c));
-            }
+            } else if (Character.isDigit(c)) {
+                sb.append(c);
         }
         return sb.toString();
     }
